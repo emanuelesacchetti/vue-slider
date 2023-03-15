@@ -4,6 +4,7 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
+        pippo: '',
       activeImage: 0,
       slides: [
             {
@@ -41,12 +42,21 @@ createApp({
         goToPrev(){
             this.activeImage--;
             if(this.activeImage == 0){
-                this.activeImage = this.slides.length - 1;
+                this.activeImage = this.slides.length-1;
             }
         },
         changeMiniature(miniatureIndex){
             this.activeImage = miniatureIndex
-        }
+        },
+        autoplay: function () {
+            
+            setInterval(function () {
+             this.activeImage++;
+          }, 2000);
+         }
+        },
+       mounted () {
+        this.autoplay()
+              }  
 
-  }
 }).mount('#app')
