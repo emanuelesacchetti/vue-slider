@@ -29,8 +29,24 @@ createApp({
             }
         ]
     }
+    
+  },
+  methods: {
+        goToNext(){
+            this.activeImage++;
+            if(this.activeImage == this.slides.length){
+                this.activeImage = 0;
+            }
+        },
+        goToPrev(){
+            this.activeImage--;
+            if(this.activeImage == 0){
+                this.activeImage = this.slides.length - 1;
+            }
+        },
+        changeMiniature(miniatureIndex){
+            this.activeImage = miniatureIndex
+        }
+
   }
 }).mount('#app')
-
-
-console.log(slides);
