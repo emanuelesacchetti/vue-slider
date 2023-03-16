@@ -4,6 +4,7 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
+      
       play: '',
       activeImage: 0,
       slides: [
@@ -52,10 +53,12 @@ createApp({
             this.activeImage = miniatureIndex
         },
         autoplay: function () {
-            
             play = setInterval(() => {
-             this.activeImage++;
+             this.goToNext()
           }, 2000);
+         },
+         mouseover: function(){
+            clearInterval(play)
          }
         },
        
